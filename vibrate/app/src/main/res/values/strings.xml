@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">vibrate</string>
+    <string name="phone_number">phone_number</string>
+    <string name="vibrate">Vibrate</string>
+</resources>

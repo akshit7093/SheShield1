@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Call</string>
+    <string name="phone_number">phone_number</string>
+    <string name="call">call</string>
+</resources>

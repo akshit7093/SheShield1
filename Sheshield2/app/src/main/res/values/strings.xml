@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">She shield</string>
+    <string name="s_o_s">S.O.S</string>
+    <string name="your_s_o_s_has_triggered">Your S.O.S has triggered</string>
+</resources>
