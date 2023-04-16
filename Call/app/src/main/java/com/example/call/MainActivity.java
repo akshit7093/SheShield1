@@ -1,4 +1,5 @@
-package com.example.call;// Import the required classes
+package com.example.call;
+
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -17,20 +18,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
-        // Check if the app has the permission to make phone calls
-        if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-            // Request the permission if not granted
-            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.CALL_PHONE}, REQUEST_CALL);
-        } else {
-            // Permission already granted, initiate the call
-            makePhoneCall();
-        }
-    }
-
-    private void makePhoneCall() {
-        // Check if the phone number is not empty
         // Replace with the phone number you want to call
         String phoneNumber = "9910319973";
         phoneNumber.trim().length();
@@ -38,13 +26,14 @@ public class MainActivity extends AppCompatActivity {
         Intent callIntent = new Intent(Intent.ACTION_CALL);
         callIntent.setData(Uri.parse("tel:" + phoneNumber));
 
-        // Check if the device has the capability to make phone calls
-        if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-            // Permission not granted, display a message
-            Toast.makeText(this, "Permission not granted to make phone calls", Toast.LENGTH_SHORT).show();
+        // Check if the app has the permission to make phone calls
+        if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            // Request the permission if not granted
+            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.CALL_PHONE}, REQUEST_CALL);
         } else {
-            // Permission granted, start the call
+            // Permission already granted, start the call
             startActivity(callIntent);
+            finish();
         }
     }
 
@@ -56,7 +45,10 @@ public class MainActivity extends AppCompatActivity {
             // Check if the permission is granted
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 // Permission granted, initiate the call
-                makePhoneCall();
+                Intent callIntent = new Intent(Intent.ACTION_CALL);
+                callIntent.setData(Uri.parse("tel:" + "9910319973"));
+                startActivity(callIntent);
+                finish();
             } else {
                 // Permission not granted, display a message
                 Toast.makeText(this, "Permission denied to make phone calls", Toast.LENGTH_SHORT).show();
