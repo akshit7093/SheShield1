@@ -20,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+
 public class SOS extends AppCompatActivity {
 
     private Vibrator vibrator;
@@ -85,6 +86,8 @@ public class SOS extends AppCompatActivity {
 
     private void makePhoneCall() {
         // Check if the phone number is not empty
+
+
         String phoneNumber = "9910319973";
         phoneNumber.trim().length();
         // Create the call intent
@@ -98,6 +101,8 @@ public class SOS extends AppCompatActivity {
         } else {
             // Permission granted, start the call
             if (!cancelVibration) {
+                Intent livlocationr = new Intent(SOS.this, Livlocationr.class);
+                startActivity(livlocationr);
                 startActivity(callIntent);
             }
         }

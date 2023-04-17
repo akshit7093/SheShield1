@@ -2,8 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:allowBackup="true"
@@ -14,30 +17,37 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SheShield"
         tools:targetApi="31">
-        <activity android:name=".profile"
+
+
+
+        <activity
+            android:name=".Livlocationr"
+            android:exported="false"/>
+
+        <activity
+            android:name=".profile"
             android:exported="false" />
 
         <activity
             android:name=".SOS"
-            android:showOnLockScreen="true"
-            android:turnScreenOn="true"
             android:excludeFromRecents="true"
-            android:exported="false" />
+            android:exported="false"
+            android:showOnLockScreen="true"
+            android:turnScreenOn="true" />
+
         <activity
             android:name=".Home"
             android:exported="false" />
+
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
-
-
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
