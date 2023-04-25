@@ -62,8 +62,8 @@ public class Livlocationr extends AppCompatActivity implements LocationListener 
     @Override
     public void onLocationChanged(Location location) {
         // Send SMS with location link
-        String phoneNumber = "8860144884"; // Replace with user defined number
-        String message = "My current location: " + getLocationLink(location.getLatitude(), location.getLongitude());
+        String phoneNumber = "9910319973"; // Replace with user defined number
+        String message = "DANGER !!!: " + getLocationLink(location.getLatitude(), location.getLongitude());
         SmsManager smsManager = SmsManager.getDefault();
         smsManager.sendTextMessage(phoneNumber, null, message, null, null);
         Toast.makeText(Livlocationr.this, "Location sent!", Toast.LENGTH_SHORT).show();

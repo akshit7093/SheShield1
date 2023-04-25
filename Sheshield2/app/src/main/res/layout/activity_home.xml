@@ -20,6 +20,7 @@
         android:orientation="horizontal"
         android:weightSum="4">
 
+
         <Button
             android:id="@+id/btn_home"
             android:layout_width="0dp"
@@ -27,6 +28,9 @@
             android:layout_weight="1"
             android:text="Home"
             android:textColor="@color/black" />
+
+
+
 
         <Button
             android:id="@+id/btn_mode"
@@ -42,6 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#800909"
             android:text="SOS"
             android:textSize="20dp" />
 
@@ -67,6 +72,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="59dp"
         android:layout_marginEnd="-4dp"
+        android:gravity="center"
         android:text="You are more POWERFUL than  you KNOW"
         android:textSize="30dp"
         android:textStyle="bold|italic" />

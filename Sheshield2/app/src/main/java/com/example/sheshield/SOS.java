@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import java.io.IOException;
 
 public class SOS extends AppCompatActivity {
 
@@ -27,7 +29,8 @@ public class SOS extends AppCompatActivity {
     private static final long[] VIBRATION_PATTERN = {0, 200, 100, 200};
     private static final int VIBRATION_DURATION = 1000; // 1 second
     private static final int REQUEST_CALL = 1;
-    private boolean cancelVibration = false; // add this line
+    private boolean cancelVibration = false;
+    private MediaPlayer mediaPlayer; // Add this line
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -38,7 +41,9 @@ public class SOS extends AppCompatActivity {
         // Start the vibration
         startVibration();
 
+        // Start playing the audio file
     }
+
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -49,8 +54,9 @@ public class SOS extends AppCompatActivity {
         @SuppressLint({"MissingInflatedId", "LocalSuppress", "UseSwitchCompatOrMaterialCode"}) Switch cancelSwitch = findViewById(R.id.switch1);
         cancelSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
-                // If the switch is toggled on, cancel the vibration and prevent the call function from running
+                // If the switch is toggled on, cancel the vibration, stop the audio file, and prevent the call function from running
                 vibrator.cancel();
+                mediaPlayer.stop();
                 cancelVibration = true;
             }
         });
@@ -75,7 +81,7 @@ public class SOS extends AppCompatActivity {
 
     private void initiateCall() {
         // Check if the app has the permission to make phone calls
-        if (ContextCompat.checkSelfPermission(SOS.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED & cancelVibration) {
+        if (ContextCompat.checkSelfPermission(SOS.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
             // Request the permission if not granted
             ActivityCompat.requestPermissions(SOS.this, new String[]{Manifest.permission.CALL_PHONE}, REQUEST_CALL);
         } else {
