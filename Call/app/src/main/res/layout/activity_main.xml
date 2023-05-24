@@ -3,33 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/editTextPhoneNumber"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:hint="@string/phone_number"
-        android:inputType="phone"
-        android:maxLines="1"
-        android:minHeight="48dp"
-        android:textSize="16sp"
-        android:autofillHints=""
-        tools:ignore="VisualLintTextFieldSize" />
-
-    <Button
-        android:id="@+id/buttonCall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/call"
-        android:textSize="16sp"
-        android:layout_below="@id/editTextPhoneNumber"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        android:onClick="onCallButtonClick"
-        tools:ignore="OnClick" />
+    <!-- Replace with your desired UI elements -->
 
 </RelativeLayout>
